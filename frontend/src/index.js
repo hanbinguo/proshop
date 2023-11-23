@@ -13,6 +13,16 @@ import {
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import "./index.css";
+//connect redux store
+import { Provider } from "react-redux";
+import store from "./store";
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App />
+	</Provider>,
+	document.getElementById("root")
+);
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
