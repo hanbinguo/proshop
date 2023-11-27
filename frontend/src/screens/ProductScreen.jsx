@@ -17,7 +17,8 @@ import Rating from "../components/Rating";
 // import products from "../products";
 //we dont do that now, instead we fetch from backend
 import { useGetProductDetailsQuery } from "../slices/productsApiSlice";
-
+import Loader from "../components/Loader";
+import Message from "../components/Message";
 const ProductScreen = () => {
 	const { id: productId } = useParams();
 	const {
@@ -32,9 +33,11 @@ const ProductScreen = () => {
 				Homepage
 			</Link>
 			{isLoading ? (
-				<div>Loading...</div>
+				<Loader />
 			) : error ? (
-				<div>{error?.data?.message || error.error}</div>
+				<Message variant="danger">
+					{error?.data?.message || error.error}
+				</Message>
 			) : (
 				<>
 					<Row>
