@@ -8,7 +8,7 @@ import dotenv from "dotenv";
 import connectDB from "./config/db.js";
 //for product routes
 import productRoutes from "./routes/productRoutes.js";
-
+import userRoutes from "./routes/userRoutes.js";
 dotenv.config();
 
 const port = process.env.PORT || 5001;
@@ -20,6 +20,7 @@ connectDB();
 const app = express();
 
 app.use("/api/products", productRoutes);
+app.use("/api/users", userRoutes);
 app.get("/", (req, res) => {
 	res.send("API is running...");
 });
